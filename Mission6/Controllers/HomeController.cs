@@ -18,7 +18,13 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult Privacy()
+    public IActionResult GetToKnowJoel()
+    {
+        return View();
+    }
+    
+    
+    public IActionResult AddMovie()
     {
         return View();
     }
