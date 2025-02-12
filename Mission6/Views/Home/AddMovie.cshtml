@@ -2,34 +2,36 @@
     ViewData["Title"] = "AddMovie";
 }
 
+@model Application
+
 <div class="text-center">
     <h1 class="display-4">Add a Movie</h1>
 
     <div class="container mt-5">
-        <form id="movieForm">
+        <form method="post" id="movieForm">
             <div class="mb-3">
-                <label for="category" class="form-label">Category *</label>
-                <input type="text" class="form-control" id="category" required>
+                <label asp-for="category" class="form-label">Category *</label>
+                <input asp-for="category" type="text" class="form-control" id="category" required>
             </div>
 
             <div class="mb-3">
-                <label for="title" class="form-label">Title *</label>
-                <input type="text" class="form-control" id="title" required>
+                <label asp-for="title" class="form-label">Title *</label>
+                <input asp-for="title" type="text" class="form-control" id="title" required>
             </div>
 
             <div class="mb-3">
-                <label for="year" class="form-label">Year *</label>
-                <input type="number" class="form-control" id="year" min="1888" max="2099" required>
+                <label asp-for="year" class="form-label">Year *</label>
+                <input asp-for="year" type="number" class="form-control" id="year" min="1888" max="2099" required>
             </div>
 
             <div class="mb-3">
-                <label for="director" class="form-label">Director *</label>
-                <input type="text" class="form-control" id="director" required>
+                <label asp-for="director" class="form-label">Director *</label>
+                <input asp-for="director" type="text" class="form-control" id="director" required>
             </div>
 
             <div class="mb-3">
-                <label for="rating" class="form-label">Rating *</label>
-                <select class="form-select" id="rating" required>
+                <label asp-for="rating" class="form-label">Rating *</label>
+                <select asp-for="rating" class="form-select" id="rating" required>
                     <option value="" disabled selected>Select a rating</option>
                     <option value="G">G</option>
                     <option value="PG">PG</option>
@@ -41,21 +43,22 @@
             <div class="mb-3">
                 <label class="form-label">Edited</label>
                 <div>
-                    <input type="radio" id="editedYes" name="edited" value="true">
+                    <input type="radio" asp-for="edited" id="editedYes" value="true">
                     <label for="editedYes">Yes</label>
-                    <input type="radio" id="editedNo" name="edited" value="false" checked>
+
+                    <input type="radio" asp-for="edited" id="editedNo" value="false" checked>
                     <label for="editedNo">No</label>
                 </div>
             </div>
 
             <div class="mb-3">
-                <label for="lentTo" class="form-label">Lent To</label>
-                <input type="text" class="form-control" id="lentTo">
+                <label asp-for="lentTo" class="form-label">Lent To</label>
+                <input asp-for="lentTo" type="text" class="form-control" id="lentTo">
             </div>
 
             <div class="mb-3">
-                <label for="notes" class="form-label">Notes (max 25 characters)</label>
-                <input type="text" class="form-control" id="notes" maxlength="25">
+                <label asp-for="notes" class="form-label">Notes (max 25 characters)</label>
+                <input asp-for="notes" type="text" class="form-control" id="notes" maxlength="25">
             </div>
 
             <button type="submit" class="btn btn-primary">Submit</button>

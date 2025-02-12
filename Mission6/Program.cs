@@ -1,7 +1,15 @@
+using Microsoft.EntityFrameworkCore;
+using Mission6.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<Mission6Context>(options =>
+{
+    options.UseSqlite(builder.Configuration.GetConnectionString("Mission6Connection"));
+});
 
 var app = builder.Build();
 

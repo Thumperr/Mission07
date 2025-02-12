@@ -6,11 +6,11 @@ namespace Mission6.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
+    private Mission6Context _context;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(Mission6Context someName) // Constructor
     {
-        _logger = logger;
+        _context = someName;
     }
 
     public IActionResult Index()
@@ -24,9 +24,19 @@ public class HomeController : Controller
     }
     
     
+    [HttpGet]
     public IActionResult AddMovie()
     {
         return View();
+    }
+    
+    [HttpPost]
+    public IActionResult AddMovie(Application response)
+    {
+        _context.Applications.Add(response); // Adds record to the database
+        _context.SaveChanges();
+        
+        return View("Confirmation");
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
