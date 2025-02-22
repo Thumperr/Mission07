@@ -8,7 +8,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<Mission6Context>(options =>
 {
-    options.UseSqlite(builder.Configuration.GetConnectionString("Mission6Connection"));
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
 var app = builder.Build();
